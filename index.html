@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>ToDoList - Javascript</title>
+</head>
+<body>
+    <header>
+        <h1>Ma super todolist</h1>
+    </header>
+    <section>
+        <form action="" method="get">
+            <label for="newTask">Ajouter une tâche à effectuer</label>
+            <input type="text" id="newTask">
+            <button id="addNewTask">Ajouter une nouvelle tâche</button>
+            <button id="reset">Vider ma liste</button>
+            <ol id="taskList"></ol>
+        </form>
+    </section>
+    <section>
+        <form action="">
+            <label for="color">Choisissez votre couleur : </label>
+            <input type="color" name="color" id="color">
+            <label for="checkColor">Sauver ma couleur dans le sessionStorage</label>
+            <input type="checkbox" name="" id="checkColor">
+            <button id="delete">Supprimer le sessionStorage</button>
+        </form>
+    </section>
+    <script src="./assets/js/index.js"></script>
+</body>
+</html>
