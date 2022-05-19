@@ -13,13 +13,19 @@ form.addEventListener("submit", (e) => {
   let list = document.createElement("li");
   //  Récupérer la valeur entré par l'utilisateur
   let newEntry = newTask.value;
-  list.innerText = `Chose à faire : ${newEntry}`;
-  // On injecte nos données dans le html
-  taskList.appendChild(list);
+  
+  if (newEntry != "") {
+    list.innerText = `Chose à faire : ${newEntry}`;
+    // On stocke le résultat dans le localStorage
+    window.localStorage.setItem(compteur++, newEntry);
+    // On injecte nos données dans le html
+    taskList.appendChild(list);
+  } else {
+    alert("Veuillez entrez une tâche, ça suffit la procrastination. :)");
+  }
+
   //   On vide notre formulaire
   newTask.value = "";
-  // On stocke le résultat dans le localStorage
-  window.localStorage.setItem(compteur++, newEntry);
 });
 
 //  On vide notre liste html et notre localStorage
@@ -53,9 +59,9 @@ mySelectedColor.addEventListener("change", () => {
 });
 
 // On écoute notre évenement sur notre bouton de suprression du sessionStorage
-deleteSessionStorage.addEventListener("click", () =>{
-    window.sessionStorage.clear();
-})
+deleteSessionStorage.addEventListener("click", () => {
+  window.sessionStorage.clear();
+});
 // Au chargement de la page :
 window.onload = (event) => {
   // On récupère notre couleur stocké dans sessionStorage
