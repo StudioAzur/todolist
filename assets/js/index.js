@@ -78,10 +78,10 @@ deleteSessionStorage.addEventListener("click", () => {
 });
 // Au chargement de la page :
 window.onload = (event) => {
-  for(let i = 0; i < compteur; i++){
+  for(let i = 0; i < myListofTasks.length; i++){
     let myListSave = document.createElement('li');
     let value = getList(myListOfTasks[i]);
-    myListSave.innerText = `${value}`;
+    myListSave.innerText = `Chose à faire : ${value}`;
     taskList.appendChild(myListSave);
   } 
   // récupère notre couleur stocké dans sessionStorage
