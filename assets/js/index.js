@@ -5,8 +5,7 @@ let newTask = document.getElementById("newTask");
 let reset = document.getElementById("reset");
 let body = document.querySelector("body");
 // On initialise un compteur qui fait la taille du localStorage
-let compteur = localStorage.length;
-
+let myListOfTasks = [];
 /* ================ FORMULAIRE TODOLIST ================= */
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -17,7 +16,8 @@ form.addEventListener("submit", (e) => {
   if (newEntry != "") {
     list.innerText = `Chose à faire : ${newEntry}`;
     // On stocke le résultat dans le localStorage
-    saveLocalStorage(compteur++, newEntry);
+    myListOfTasks.push(newEntry);
+    saveLocalStorage("tasks" , myListOfTasks);
     taskList.appendChild(list);
   } else {
     alert("Veuillez entrer une tâche, ça suffit la procrastination. :)");
@@ -40,9 +40,8 @@ function saveLocalStorage(name, value){
 
 // Récupère la liste dans le localStorage
 function getList(myList) {
-  for(let i = 0; i < compteur; i++){
-    let keyTask = window.localStorage.key(i);
-    myList = window.localStorage.getItem(keyTask);
+  for(let i = 0; i < myList.length; i++){
+    myList = window.localStorage.getItem("tasks");
   }
   return myList;
 }
@@ -81,7 +80,7 @@ deleteSessionStorage.addEventListener("click", () => {
 window.onload = (event) => {
   for(let i = 0; i < compteur; i++){
     let myListSave = document.createElement('li');
-    let value = getList(compteur);
+    let value = getList(myListOfTasks[i]);
     myListSave.innerText = `${value}`;
     taskList.appendChild(myListSave);
   } 
