@@ -5,26 +5,24 @@ let newTask = document.getElementById("newTask");
 let reset = document.getElementById("reset");
 let body = document.querySelector("body");
 // On initialise un compteur qui fait la taille du localStorage
-let compteur = 0;
+let compteur = localStorage.length;
 
+/* ================ FORMULAIRE TODOLIST ================= */
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   //  On crée les nouveaux élément html
   let list = document.createElement("li");
   //  Récupérer la valeur entré par l'utilisateur
   let newEntry = newTask.value;
-  
   if (newEntry != "") {
     list.innerText = `Chose à faire : ${newEntry}`;
     // On stocke le résultat dans le localStorage
-    window.localStorage.setItem(compteur++, newEntry);
-    // On injecte nos données dans le html
+    saveLocalStorage(compteur++, newEntry);
     taskList.appendChild(list);
   } else {
-    alert("Veuillez entrez une tâche, ça suffit la procrastination. :)");
+    alert("Veuillez entrer une tâche, ça suffit la procrastination. :)");
   }
-
-  //   On vide notre formulaire
+  //   On vide notre formulaire après l'insertion
   newTask.value = "";
 });
 
@@ -34,6 +32,22 @@ reset.addEventListener("click", (e) => {
   window.localStorage.clear();
   taskList.innerHTML = "";
 });
+
+// On sauvegarde nos données dans le localStorage
+function saveLocalStorage(name, value){
+  window.localStorage.setItem(name, value);
+}
+
+// Récupère la liste dans le localStorage
+function getList(myList) {
+  for(let i = 0; i < compteur; i++){
+    let keyTask = window.localStorage.key(i);
+    myList = window.localStorage.getItem(keyTask);
+  }
+  return myList;
+}
+
+/* ================ FORMULAIRE COULEUR ================= */
 
 // On va chercher les différents élements du second formulaire
 let mySelectedColor = document.getElementById("color");
@@ -51,6 +65,7 @@ function getColor(newColor) {
     return newColor;
   }
 }
+
 // On change le background du body après avoir choisi sa couleur
 mySelectedColor.addEventListener("change", () => {
   newColor = mySelectedColor.value;
@@ -64,7 +79,13 @@ deleteSessionStorage.addEventListener("click", () => {
 });
 // Au chargement de la page :
 window.onload = (event) => {
-  // On récupère notre couleur stocké dans sessionStorage
+  for(let i = 0; i < compteur; i++){
+    let myListSave = document.createElement('li');
+    let value = getList(compteur);
+    myListSave.innerText = `${value}`;
+    taskList.appendChild(myListSave);
+  } 
+  // récupère notre couleur stocké dans sessionStorage
   let newColor = window.sessionStorage.getItem("myColor");
   getColor(newColor);
   //   On change la couleur si une couleur est sauvegardé dans le sessionStorage
