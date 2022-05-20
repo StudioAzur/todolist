@@ -78,7 +78,7 @@ deleteSessionStorage.addEventListener("click", () => {
 });
 // Au chargement de la page :
 window.onload = (event) => {
-  for(let i = 0; i < myListofTasks.length; i++){
+  for(let i = 0; i < myListOfTasks.length; i++){
     let myListSave = document.createElement('li');
     let value = getList(myListOfTasks[i]);
     myListSave.innerText = `Chose à faire : ${value}`;
