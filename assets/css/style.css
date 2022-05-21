@@ -13,5 +13,16 @@ main{
     flex-direction: column;
     align-items: center;
     align-content: center;
+    row-gap: 2em    ;
 
+}
+
+.task__section{
+    background-color: antiquewhite;
+    padding: 3em;
+}
+
+h1{
+    color: rgb(105, 99, 99);
+    text-transform: uppercase;
 }
