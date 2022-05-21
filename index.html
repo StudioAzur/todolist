@@ -13,23 +13,24 @@
     </header>
     <section>
         <form action="" method="get">
-            <label for="newTask">Ajouter une tâche à effectuer</label>
-            <input type="text" id="newTask" placeholder="Ajouter votre tâche ici">
-            <button id="addNewTask">Ajouter une nouvelle tâche</button>
+            <label for="new_task">Ajouter une tâche à effectuer</label>
+            <input type="text" id="new_task" placeholder="Ajouter votre tâche ici">
+            <button id="add_new_task">Ajouter une nouvelle tâche</button>
             <button id="reset">Vider ma liste</button>
-            <ol id="taskList"></ol>
+            <ul id="task_list"></ul>
         </form>
     </section>
     <section>
         <form action="">
             <label for="color">Choisissez votre couleur : </label>
             <input type="color" name="color" id="color">
-            <label for="checkColor">Sauver ma couleur dans le sessionStorage</label>
-            <input type="checkbox" name="" id="checkColor">
+            <label for="check_color">Sauver ma couleur dans le sessionStorage</label>
+            <input type="checkbox" name="" id="check_color">
             <button id="delete">Supprimer le sessionStorage</button>
         </form>
     </section>
-    <script src="./assets/js/index.js"></script>
+    <script type="module" src="./assets/js/index.js"></script>
+    <script type="module" src="./assets/js/save.js"></script>
 </body>
 </html>
 
