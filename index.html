@@ -1,36 +1,44 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <title>ToDoList - Javascript</title>
-</head>
-<body>
-    <header>
+  </head>
+  <body>
+    <main>
+      <header>
         <h1>Ma super todolist</h1>
-    </header>
-    <section>
+      </header>
+      <section>
         <form action="" method="get">
-            <label for="new_task">Ajouter une tâche à effectuer</label>
-            <input type="text" id="new_task" placeholder="Ajouter votre tâche ici">
-            <button id="add_new_task">Ajouter une nouvelle tâche</button>
-            <button id="reset">Vider ma liste</button>
-            <ul id="task_list"></ul>
+          <label for="new_task">Ajouter une tâche à effectuer</label>
+          <input
+            type="text"
+            id="new_task"
+            placeholder="Ajouter votre tâche ici"
+          />
+          <button id="add_new_task">Ajouter une nouvelle tâche</button>
+          <button id="reset">Vider ma liste</button>
+          <ul id="task_list"></ul>
         </form>
-    </section>
-    <section>
+      </section>
+      <section>
         <form action="">
-            <label for="color">Choisissez votre couleur : </label>
-            <input type="color" name="color" id="color">
-            <label for="check_color">Sauver ma couleur dans le sessionStorage</label>
-            <input type="checkbox" name="" id="check_color">
-            <button id="delete">Supprimer le sessionStorage</button>
+          <label for="color">Choisissez votre couleur : </label>
+          <input type="color" name="color" id="color" />
+          <label for="check_color"
+            >Sauver ma couleur dans le sessionStorage</label
+          >
+          <input type="checkbox" name="" id="check_color" />
+          <button id="delete">Supprimer le sessionStorage</button>
         </form>
-    </section>
+      </section>
+    </main>
+
     <script type="module" src="./assets/js/index.js"></script>
     <script type="module" src="./assets/js/save.js"></script>
-</body>
+  </body>
 </html>
-
